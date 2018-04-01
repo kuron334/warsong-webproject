@@ -1,7 +1,6 @@
 var vm = new Vue({
-	el: '#example',
-    data: {
-    	name: 'syamu_game',
-    	price: 0
-    }
-});
+	el: '#menu-button',
+	data: {
+		toggle: true,
+	}
+})

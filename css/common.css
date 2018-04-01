@@ -3,11 +3,21 @@ li {
   list-style: none;
 }
 
+header {
+  position: sticky;
+  background: rgba(255, 255, 255, 0.9);
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  border-bottom: 1px solid #D8D8D8;
+  box-shadow: 0 0 5px 5px rgba(88, 88, 88, 0.2);
+}
 header .top {
-  margin: 0 2%;
   display: flex;
+  padding: 0 26px 0 20px;
 }
 header .top .top-title {
+  align-self: center;
   font-family: 'Abril Fatface', cursive;
   font-size: 36px;
 }
@@ -16,30 +26,37 @@ header .top .top-menu {
   margin-left: auto;
 }
 header .top .top-menu a {
+  display: block;
+  padding: 10px;
   color: black;
 }
 header .top .top-menu a:hover {
   cursor: pointer;
 }
-header .site-top {
+header .top .top-menu a div {
+  font-size: 6px;
+}
+
+.site-top {
   display: flex;
   justify-content: center;
   padding: 80px 0;
   background-color: #4E454A;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2) inset;
 }
-header .site-top .site-top-main {
+.site-top .site-top-main {
   margin: 0 16px;
   text-align: center;
 }
-header .site-top .site-top-main .site-top-title {
+.site-top .site-top-main .site-top-title {
   color: white;
 }
-header .site-top .site-top-main .site-top-sub {
+.site-top .site-top-main .site-top-sub {
   color: silver;
 }
 
 nav.navbar {
+  display: none;
   border-bottom: 1px solid black;
   background-color: rgba(51, 51, 51, 0.8);
 }
@@ -75,7 +92,7 @@ nav.navbar .navbar-list .navbar-items .navbar-submenu-list {
   margin: 0;
   position: absolute;
   left: -15px;
-  width: 200px;
+  width: 300px;
   background-color: rgba(51, 51, 51, 0.8);
   text-decoration: none;
   z-index: 99;
@@ -104,8 +121,8 @@ main .article-title:after {
   bottom: -10px;
   width: 100%;
   height: 7px;
-  background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
-  background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+  background: -webkit-repeating-linear-gradient(-45deg, #D8D8D8, #D8D8D8 2px, #fff 2px, #fff 4px);
+  background: repeating-linear-gradient(-45deg, #D8D8D8, #D8D8D8 2px, #fff 2px, #fff 4px);
 }
 
 /* Mobile first queries */
@@ -113,6 +130,15 @@ main .article-title:after {
 /* Larger than phablet */
 /* Larger than tablet */
 /* Larger than desktop */
+@media (min-width: 1000px) {
+  .top-menu {
+    display: none;
+  }
+
+  nav.navbar {
+    display: block;
+  }
+}
 /* Larger than Desktop HD */
 
 /*# sourceMappingURL=common.css.map */
