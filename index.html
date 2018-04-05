@@ -27,10 +27,6 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="img/favicon.png">
-
-  <!-- Script
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   
 </head>
 <body>
@@ -44,24 +40,28 @@
     <div class="top">
       <span class="top-title">Warsong.site</span>
       <div class="top-menu">
-        <div id="menu-button" v-on:click="toggle = !toggle">
-          <a v-show="toggle" class="trans-arrow"><i class="fas fa-bars fa-lg"></i></a>
-          <a v-show="!toggle"><i class="fas fa-times fa-lg"></i></a>
-        </div>
+        <label for="toggle-menu">
+          <div id="menu-button" @click="toggle = !toggle">
+            <a v-show="toggle" class="trans-arrow"><i class="fas fa-bars fa-lg"></i></a>
+            <a v-show="!toggle"><i class="fas fa-times fa-lg"></i></a>
+          </div>
+        </label>
       </div>
     </div>
   </header>
 
-  <div class="site-top">
-    <div class="site-top-main">
-      <h3 class="site-top-title">†　Warsong攻略サイト　†</h3>
-      <span class="site-top-sub">Warsongの最新アプデ情報、攻略、遊び方、その他色々を掲載しています。</span>
-    </div>
-  </div>
 
-
-
-
+  <input type="checkbox" id="toggle-menu" style="display: none;">
+  <nav id="drower-menu">
+    <ul id="drower-menu-list">
+      <li class="drower-menu-items" v-for="list in lists">
+        <a><span>{{ list.items }}</span><i class="fas fa-angle-down"></i></a>
+        <ul class="drower-menu-child-list">
+          <li class="drower-menu-child-items" v-for="childList in list.childLists"><a href="">{{ childList.childItems }}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <!-- グローバルナビゲーション
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -71,64 +71,85 @@
         <li class="navbar-items"><a href="">最新情報</a></li>
         <li class="navbar-items">
           <a href=""><span>ヒーロー</span><i class="fas fa-angle-down"></i></a>
-          <ul class="navbar-submenu-list">
-            <li class="navbar-submenu-items"><a href="">タンク</a></li>
-            <li class="navbar-submenu-items"><a href="">ファイター</a></li>
-            <li class="navbar-submenu-items"><a href="">アサシン</a></li>
-            <li class="navbar-submenu-items"><a href="">メイジ</a></li>
-            <li class="navbar-submenu-items"><a href="">マークスマン</a></li>
-            <li class="navbar-submenu-items"><a href="">サポート</a></li>
+          <ul class="navbar-child-list navbar-child2">
+            <li class="navbar-child-items"><a href="">タンク</a></li>
+            <li class="navbar-child-items"><a href="">ファイター</a></li>
+            <li class="navbar-child-items"><a href="">アサシン</a></li>
+            <li class="navbar-child-items"><a href="">メイジ</a></li>
+            <li class="navbar-child-items"><a href="">マークスマン</a></li>
+            <li class="navbar-child-items"><a href="">サポート</a></li>
           </ul>
         </li>
         <li class="navbar-items">
           <a href=""><span>おすすめ装備</span><i class="fas fa-angle-down"></i></a>
-          <ul class="navbar-submenu-list">
-            <li class="navbar-submenu-items"><a href="">タンク</a></li>
-            <li class="navbar-submenu-items"><a href="">ファイター</a></li>
-            <li class="navbar-submenu-items"><a href="">アサシン</a></li>
-            <li class="navbar-submenu-items"><a href="">メイジ</a></li>
-            <li class="navbar-submenu-items"><a href="">マークスマン</a></li>
-            <li class="navbar-submenu-items"><a href="">サポート</a></li>
+          <ul class="navbar-child-list navbar-child3">
+            <li class="navbar-child-items"><a href="">タンク</a></li>
+            <li class="navbar-child-items"><a href="">ファイター</a></li>
+            <li class="navbar-child-items"><a href="">アサシン</a></li>
+            <li class="navbar-child-items"><a href="">メイジ</a></li>
+            <li class="navbar-child-items"><a href="">マークスマン</a></li>
+            <li class="navbar-child-items"><a href="">サポート</a></li>
           </ul>
         </li>
         <li class="navbar-items">
           <a href=""><span>遊び方</span><i class="fas fa-angle-down"></i></a>
-          <ul class="navbar-submenu-list">
-            <li class="navbar-submenu-items"><a href="">常識編</a></li>
-            <li class="navbar-submenu-items"><a href="">基本編</a></li>
-            <li class="navbar-submenu-items"><a href="">応用編</a></li>
+          <ul class="navbar-child-list navbar-child4">
+            <li class="navbar-child-items"><a href="">常識編</a></li>
+            <li class="navbar-child-items"><a href="">基本編</a></li>
+            <li class="navbar-child-items"><a href="">応用編</a></li>
           </ul>
         </li>
         <li class="navbar-items">
-          <a href=""><span>アイテム・汎用スキル</span><i class="fas fa-angle-down"></i></a>
-          <ul class="navbar-submenu-list">
-            <li class="navbar-submenu-items"><a href="">各種アイテム</a></li>
-            <li class="navbar-submenu-items"><a href="">汎用スキル</a></li>
+          <a href=""><span>アイテム・スキル</span><i class="fas fa-angle-down"></i></a>
+          <ul class="navbar-child-list navbar-child5">
+            <li class="navbar-child-items"><a href="">各種アイテム</a></li>
+            <li class="navbar-child-items"><a href="">汎用スキル</a></li>
           </ul>
         </li>
         <li class="navbar-items">
           <a href=""><span>歴代環境</span><i class="fas fa-angle-down"></i></a>
-          <ul class="navbar-submenu-list">
-            <li class="navbar-submenu-items"><a href="">第4回バランス調整</a></li>
-            <li class="navbar-submenu-items"><a href="">第3回バランス調整</a></li>
-            <li class="navbar-submenu-items"><a href="">第2回バランス調整</a></li>
-            <li class="navbar-submenu-items"><a href="">第1回バランス調整</a></li>
-            <li class="navbar-submenu-items"><a href="">リリース開始</a></li>
+          <ul class="navbar-child-list  navbar-child6">
+            <li class="navbar-child-items"><a href="">第4回バランス調整</a></li>
+            <li class="navbar-child-items"><a href="">第3回バランス調整</a></li>
+            <li class="navbar-child-items"><a href="">第2回バランス調整</a></li>
+            <li class="navbar-child-items"><a href="">第1回バランス調整</a></li>
+            <li class="navbar-child-items"><a href="">リリース開始</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </nav>
 
-  <div style="height: 50px;"></div>
+  <div class="site-top">
+    <div class="site-top-main">
+      <h3 class="site-top-title">Warsong攻略サイト</h3>
+      <span class="site-top-sub">Warsongの最新アプデ情報、攻略、遊び方、その他色々を掲載しています。</span>
+    </div>
+  </div>
+  
+
+  <div style="height: 30px;"></div>
 
   <!-- メインコンテンツ
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <main role="main">
     <div class="container">
       <div class="row">
-        <div class="eight columns">  
-          <h3 class="article-title">最新アップデート情報</h3>
+        <div class="eight columns">
+          <ul class="breadcrumb">
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a href="" itemprop="url"><span itemprop="title">ホーム</span></a>
+            </li>
+            <!--
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a href="" itemprop="url"><span itemprop="title">カテゴリー名</span></a>
+            </li>
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a href="" itemprop="url"><span itemprop="title">子カテゴリー名</span></a>
+            </li>
+            -->
+          </ul>
+          <h4 class="article-title">最新アップデート情報</h4>
             <p>フォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォント</p>
         </div>
         <div class="four columns">
@@ -138,7 +159,11 @@
     </div>
   </main>
 
+  <div class="a-style1"></div>
   
+  <!-- Script
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="script/script.js"></script>
 
 <!-- End Document

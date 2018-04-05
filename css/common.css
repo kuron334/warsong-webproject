@@ -1,16 +1,42 @@
 @charset "UTF-8";
+/*変数宣言---------------------------------------------------*/
+/*共通のスタイル-------------------------------------------------*/
+body {
+  font-family: YuGothic,'Yu Gothic','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+}
+
 li {
   list-style: none;
 }
 
+label {
+  margin: 0;
+}
+
+/*継承---------------------------------------------------------*/
+.a-style1, #drower-menu .drower-menu-list .drower-menu-items a, #drower-menu .drower-menu-list .drower-menu-items .drower-menu-child-list .drower-menu-child-items a, nav.navbar .navbar-list .navbar-items a {
+  text-decoration: none;
+  color: white;
+}
+
+.a-style1:hover, #drower-menu .drower-menu-list .drower-menu-items a:hover, #drower-menu .drower-menu-list .drower-menu-items .drower-menu-child-list .drower-menu-child-items a:hover, nav.navbar .navbar-list .navbar-items a:hover, main .breadcrumb li a:hover {
+  cursor: pointer;
+  color: #a0d8ef;
+}
+
+/*-------------------------------------------------------------*/
 header {
   position: sticky;
-  background: rgba(255, 255, 255, 0.9);
   top: 0px;
   left: 0px;
   z-index: 999;
   border-bottom: 1px solid #D8D8D8;
-  box-shadow: 0 0 5px 5px rgba(88, 88, 88, 0.2);
+  background: rgba(255, 255, 255, 0.95);
 }
 header .top {
   display: flex;
@@ -22,8 +48,8 @@ header .top .top-title {
   font-size: 36px;
 }
 header .top .top-menu {
-  align-self: center;
   margin-left: auto;
+  align-self: center;
 }
 header .top .top-menu a {
   display: block;
@@ -33,8 +59,126 @@ header .top .top-menu a {
 header .top .top-menu a:hover {
   cursor: pointer;
 }
-header .top .top-menu a div {
-  font-size: 6px;
+
+/*-------------------------------------------------------------*/
+#drower-menu {
+  position: fixed;
+  top: 58px;
+  right: 0;
+  padding: 0px;
+  width: 300px;
+  /* メニューのwidth */
+  height: 100%;
+  z-index: 9999;
+  overflow: scroll;
+  transition: left .5s, right .5s;
+  background: rgba(0, 0, 0, 0.85);
+}
+#drower-menu .drower-menu-list {
+  margin: 0;
+}
+#drower-menu .drower-menu-list .drower-menu-items {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+#drower-menu .drower-menu-list .drower-menu-items:first-child a {
+  padding-top: 10px;
+}
+#drower-menu .drower-menu-list .drower-menu-items a {
+  display: block;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+}
+#drower-menu .drower-menu-list .drower-menu-items a:hover {
+  color: white;
+  background: rgba(105, 105, 105, 0.6);
+}
+#drower-menu .drower-menu-list .drower-menu-items a span {
+  padding-right: 6px;
+}
+#drower-menu .drower-menu-list .drower-menu-items .drower-menu-child-list {
+  margin: 0;
+}
+#drower-menu .drower-menu-list .drower-menu-items .drower-menu-child-list .drower-menu-child-items {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+#drower-menu .drower-menu-list .drower-menu-items .drower-menu-child-list .drower-menu-child-items a {
+  padding-left: 40px;
+}
+
+#toggle-menu:checked + #drower-menu {
+  right: 0;
+}
+
+/*PC限定ナビゲーション*/
+nav.navbar {
+  display: none;
+  background-color: #333333;
+}
+nav.navbar .navbar-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+nav.navbar .navbar-list .navbar-items {
+  position: relative;
+  display: inline-block;
+  align-self: center;
+  margin-bottom: 0;
+}
+nav.navbar .navbar-list .navbar-items a {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 16px;
+}
+nav.navbar .navbar-list .navbar-items span {
+  padding-right: 4px;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child-list {
+  position: absolute;
+  left: 0;
+  display: none;
+  margin: 0;
+  width: 160px;
+  z-index: 99;
+  text-decoration: none;
+  background-color: #333333;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child-list .navbar-child-items {
+  margin: 0;
+  border-bottom: 1px solid black;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child-list .navbar-child-items a {
+  display: block;
+  text-align: center;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child-list .navbar-child-items:first-child {
+  border-top: 1px solid black;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child-list .navbar-child-items:last-child {
+  border-bottom: none;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child2 {
+  left: -41px;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child3 {
+  left: -30px;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child4 {
+  left: -52px;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child5 {
+  left: -10px;
+}
+nav.navbar .navbar-list .navbar-items .navbar-child6 {
+  left: -42px;
+}
+nav.navbar .navbar-list .navbar-items:hover .navbar-child-list {
+  display: block;
 }
 
 .site-top {
@@ -51,66 +195,53 @@ header .top .top-menu a div {
 .site-top .site-top-main .site-top-title {
   color: white;
 }
+.site-top .site-top-main .site-top-title:before {
+  content: "† ";
+}
+.site-top .site-top-main .site-top-title:after {
+  content: " †";
+}
 .site-top .site-top-main .site-top-sub {
   color: silver;
 }
 
-nav.navbar {
-  display: none;
-  border-bottom: 1px solid black;
-  background-color: rgba(51, 51, 51, 0.8);
-}
-nav.navbar .navbar-list {
+/*メインコンテンツ*/
+main .breadcrumb {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 0;
+  margin: 0;
 }
-nav.navbar .navbar-list .navbar-items {
-  display: inline-block;
-  align-self: center;
-  margin-bottom: 0;
-  margin-right: 30px;
-  position: relative;
+main .breadcrumb li {
+  margin: 0;
+  padding-bottom: 10px;
+  font-weight: 700;
 }
-nav.navbar .navbar-list .navbar-items a {
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  text-decoration: none;
-  color: white;
+main .breadcrumb li::after {
+  /*
+    font-family: "Font Awesome 5 Free";
+    content: '\f0da';
+  */
+  display: inline;
+  content: '>';
+  padding: 0 3px;
+  color: silver;
 }
-nav.navbar .navbar-list .navbar-items a:hover {
-  color: #a0d8ef;
-}
-nav.navbar .navbar-list .navbar-items span {
-  padding-right: 4px;
-}
-nav.navbar .navbar-list .navbar-items .navbar-submenu-list {
+main .breadcrumb li:last-child::after {
   display: none;
-  margin: 0;
-  position: absolute;
-  left: -15px;
-  width: 300px;
-  background-color: rgba(51, 51, 51, 0.8);
+  content: '';
+}
+main .breadcrumb li a {
   text-decoration: none;
-  z-index: 99;
+  color: black;
 }
-nav.navbar .navbar-list .navbar-items .navbar-submenu-list .navbar-submenu-items {
-  border-bottom: 1px solid black;
-  margin: 0;
+main .breadcrumb li:first-child a::before {
+  /*
+  font-family: "Font Awesome 5 Free";
+  content: '\f015';
+  */
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #f3948f;
 }
-nav.navbar .navbar-list .navbar-items .navbar-submenu-list .navbar-submenu-items a {
-  display: block;
-}
-nav.navbar .navbar-list .navbar-items .navbar-submenu-list .navbar-submenu-items a:before {
-  content: "　";
-}
-nav.navbar .navbar-list .navbar-items:hover .navbar-submenu-list {
-  display: block;
-}
-
 main .article-title {
   position: relative;
 }
@@ -131,10 +262,6 @@ main .article-title:after {
 /* Larger than tablet */
 /* Larger than desktop */
 @media (min-width: 1000px) {
-  .top-menu {
-    display: none;
-  }
-
   nav.navbar {
     display: block;
   }
