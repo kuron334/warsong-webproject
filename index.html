@@ -57,12 +57,14 @@
   <nav id="drower-menu" role="navigation">
     <ul id="drower-menu-list">
       <li class="drower-menu-items" v-for="list in lists">
-        <a href="" @click="toggle = !toggle"><span>{{ list.items }}</span><i class="fas fa-angle-down"></i></a>
+        <a :href="list.url" @click="toggle = !toggle"><span>{{ list.items }}</span><i class="fas fa-angle-down"></i></a>
         <ul class="drower-menu-child-list">
           <li class="drower-menu-child-items" v-for="childList in list.childLists">
-            <a href="">{{ childList.childItems }}</a>
+            <a :href="childList.url">{{ childList.childItems }}</a>
             <ul class="drower-menu-child2-list">
-              <li class="drower-menu-child2-items" v-for="child2List in childList.child2Lists"><a href="">{{ child2List.child2Items }}</a></li>
+              <li class="drower-menu-child2-items" v-for="child2List in childList.child2Lists">
+                <a href="">{{ child2List.child2Items }}</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -76,12 +78,14 @@
     <div class="container">
       <ul class="navbar-list">
         <li class="navbar-items" v-for="list in lists">
-          <a href="" @click.stop="toggle = !toggle"><span>{{ list.items }}</span><i class="fas fa-angle-down"></i></a>
+          <a :href="list.url" @click.stop="toggle = !toggle"><span>{{ list.items }}</span><i class="fas fa-angle-down"></i></a>
           <ul class="navbar-child-list">
             <li class="navbar-child-items" v-for="childList in list.childLists">
-              <a href="">{{ childList.childItems }}</a>
+              <a :href="childList.url">{{ childList.childItems }}</a>
               <ul class="navbar-child2-list">
-                <li class="navbar-child2-items" v-for="child2List in childList.child2Lists"><a href="">{{ child2List.child2Items }}</a></li>
+                <li class="navbar-child2-items" v-for="child2List in childList.child2Lists">
+                  <a href="">{{ child2List.child2Items }}</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -109,12 +113,14 @@
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
               <a href="" itemprop="url"><span itemprop="title">ホーム</span></a>
             </li>
+            <!--
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
               <a href="" itemprop="url"><span itemprop="title">カテゴリー名</span></a>
             </li>
             <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
               <a href="" itemprop="url"><span itemprop="title">子カテゴリー名</span></a>
             </li>
+          -->
           </ul>
           <h4 class="article-title">最新アップデート情報</h4>
             <p>フォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォントフォント</p>
